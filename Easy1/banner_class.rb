@@ -1,17 +1,14 @@
-# banner = Banner.new('To boldly go where no one has gone before.')
-# puts banner
 # +--------------------------------------------+
 # |                                            |
 # | To boldly go where no one has gone before. |
 # |                                            |
 # +--------------------------------------------+
 
-
 class Banner
   attr_accessor :message
 
   def initialize(message)
-    
+    @message = message
   end
 
   def to_s
@@ -21,9 +18,11 @@ class Banner
   private
 
   def horizontal_rule
+    "+-#{"-" * (message.size)}-+"  
   end
 
   def empty_line
+    "| #{" " * (message.size)} |"
   end
 
   def message_line
@@ -31,7 +30,9 @@ class Banner
   end
 end
 
-banner = Banner.new("Hello!")
-p banner
-
-
+banner = Banner.new('To boldly go where no one has gone before.')
+puts banner
+banner2 = Banner.new('')
+puts banner2
+banner2.message = "Hello beautiful!"
+puts banner2
